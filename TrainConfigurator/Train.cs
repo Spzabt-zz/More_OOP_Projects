@@ -4,33 +4,42 @@ namespace TrainConfigurator
 {
     public class Train
     {
-        private const int RailwayCarriageCapacity=54;
+        private readonly int _railwayCarriageCapacity;
         private readonly int[][] _railwayCarriage;
-        public int Index { get; private set; }
+        public string DirectionInfo { get; private set; }
 
-        public Train(int railwayCarriageCount/*int railwayCarriageCapacity,*/)
+        public Train(int railwayCarriageCount, int railwayCarriageCapacity, string directionInfo)
         {
             _railwayCarriage = new int[railwayCarriageCount][];
-            //RailwayCarriageCapacity = railwayCarriageCapacity;
-            Index++;
+            _railwayCarriageCapacity = railwayCarriageCapacity;
+            DirectionInfo = directionInfo;
         }
 
         public void FormTrain(Passenger passenger)
         {
             for (int i = 0; i < _railwayCarriage.Length; i++)
             {
-                _railwayCarriage[i] = new int[RailwayCarriageCapacity];
+                _railwayCarriage[i] = new int[_railwayCarriageCapacity];
             }
-            
+
             for (int i = 0; i < _railwayCarriage.Length; i++)
             {
                 Console.WriteLine($"\nrailway carriage number: {i}\n");
                 for (int j = 0; j < _railwayCarriage[i].Length; j++)
                 {
-                    _railwayCarriage[i][j] = passenger.Index++;
+                    if (passenger.Index++ == passenger.Count)
+                    {
+                        return;
+                    }
+                    _railwayCarriage[i][j] = passenger.Index;
                     Console.WriteLine("Passenger number: " + passenger.Index);
                 }
             }
+        }
+
+        public string RailwayCarriageCount()
+        {
+            return $"Railway carriage count: {_railwayCarriage.Length}";
         }
     }
 }
