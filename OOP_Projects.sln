@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainConfigurator", "TrainConfigurator\TrainConfigurator.csproj", "{8290BAE8-2C04-4C7A-AE0D-8E06102B250F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket", "Supermarket\Supermarket.csproj", "{25C19B25-4EA8-4316-AA92-D948A056A5D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8290BAE8-2C04-4C7A-AE0D-8E06102B250F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8290BAE8-2C04-4C7A-AE0D-8E06102B250F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8290BAE8-2C04-4C7A-AE0D-8E06102B250F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25C19B25-4EA8-4316-AA92-D948A056A5D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25C19B25-4EA8-4316-AA92-D948A056A5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25C19B25-4EA8-4316-AA92-D948A056A5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25C19B25-4EA8-4316-AA92-D948A056A5D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
