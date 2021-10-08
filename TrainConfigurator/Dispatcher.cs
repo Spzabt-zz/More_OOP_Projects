@@ -3,43 +3,42 @@ using System.Collections.Generic;
 
 namespace TrainConfigurator
 {
-    public class TrainStation
+    public class Dispatcher
     {
         private readonly List<Train> _trains;
-        private readonly List<string> _directions;
         private Train _train;
-        private Passenger _passenger;
+        private Passengers _passengers;
         private const int RailwayCarriageCapacity = 54;
 
-        public TrainStation()
+        public Dispatcher()
         {
             _trains = new List<Train>();
-            _directions = new List<string>();
         }
 
-        private string CreateDirection(string direction)
+        private string CreateDirection()
         {
-            _directions.Add(direction);
+            string direction = Console.ReadLine();
             return direction;
         }
 
         private int SellTickets()
         {
-            return _passenger.Count;
+            return _passengers.Count;
         }
 
-        public void CreateTrain(string direction)
+        public void CreateTrain()
         {
-            var rand = new Random();
-            _passenger = new Passenger();
+            _passengers = new Passengers();
+            Console.WriteLine("Задайте маршрут");
+            string direction = CreateDirection();
             int soldTickets = SellTickets();
             Console.WriteLine("Tickets sold: " + soldTickets);
             var railwayCarriageCount = Math.Round((double) (soldTickets / RailwayCarriageCapacity),
                 MidpointRounding.AwayFromZero);
             railwayCarriageCount++;
             Console.WriteLine("Railway carriage count: " + railwayCarriageCount);
-            _train = new Train((int)railwayCarriageCount, RailwayCarriageCapacity, CreateDirection(direction));
-            _train.FormTrain(_passenger);
+            _train = new Train((int)railwayCarriageCount, RailwayCarriageCapacity, direction);
+            _train.FormTrain(_passengers);
             Console.WriteLine($"Train direction: {_train.DirectionInfo}");
         }
 

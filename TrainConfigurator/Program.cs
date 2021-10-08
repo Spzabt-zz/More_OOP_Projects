@@ -6,12 +6,11 @@ namespace TrainConfigurator
     {
         public static void Main(string[] args)
         {
-            TrainStation trainStation = new TrainStation();
-            while (true)
+            bool isOpen = true;
+            Dispatcher trainStation = new Dispatcher();
+            while (isOpen)
             {
-                Console.WriteLine("Задайте маршрут");
-                string direction = Console.ReadLine();
-                trainStation.CreateTrain(direction);
+                trainStation.CreateTrain();
                 trainStation.TrainDeparture();
                 Console.SetCursorPosition(50, 21);
                 Console.WriteLine("Нажмите Enter для создания нового маршрута.");
@@ -19,8 +18,8 @@ namespace TrainConfigurator
                 Console.WriteLine("Нажмите 1 для выхода из программы");
                 Console.SetCursorPosition(0, 0);
                 ConsoleKeyInfo userInput = Console.ReadKey();
-                if(userInput.Key == ConsoleKey.D1)
-                    Environment.Exit(0);
+                if (userInput.Key == ConsoleKey.D1)
+                    isOpen = false;
                 Console.Clear();
             }
         }
